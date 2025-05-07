@@ -2,6 +2,7 @@
 import turtle
 turtle.penup()
 turtle.hideturtle()
+turtle.pensize=5
 
 # Write a new class `Point` with these methods:
 # `__init__` sets `self.x` and `self.y`.
@@ -11,10 +12,37 @@ turtle.hideturtle()
 #    2. stamps a point with `turtle.dot`
 
 
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __str__(self):
+        return(f"{self.x,self.y}")
+    def draw(self):
+        turtle.goto(self.x,self.y)
+        turtle.dot()
+        turtle.write(self.__str__())
+
 # Make 4 new objects of the class Point: (0, 0), (100, 0), (100, 100), (0, 100)
 # Print your objects.
 # Run your draw method for that object.
 
+zero_zero = Point(0,0)
+print(zero_zero)
+zero_zero.draw()
+
+hundred_zero = Point(100,0)
+print(hundred_zero)
+hundred_zero.draw()
+
+hundred_hundred = Point(100,100)
+print(hundred_hundred)
+hundred_hundred.draw()
+
+zero_hundred = Point(0,100)
+print(zero_hundred)
+zero_hundred.draw()
 
 #### OPTIONAL extra credit ####
 # The `str` function will run the `__str__` method for an object. Use the
